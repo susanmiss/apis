@@ -1,3 +1,35 @@
+//p_4m60W6ANjJadtOc8zsqMM3XNUdhncqoI0bOX4WMY0   Acess
+
+//Y9_pPsEQBJajyVzpwHveiex0cg4vyHIw0SQaBjxPBYo secret
+
+/* Fetch API */
+
+
+const url = "https://api.unsplash.com/search/photos?query=dog&per_page=20&client_id=p_4m60W6ANjJadtOc8zsqMM3XNUdhncqoI0bOX4WMY0 ";
+const imageDiv = document.querySelector('.image');
+fetch(url)
+    .then(response => {
+        console.log("Unsplash: ", response)
+        return response.json();
+    })
+    .then(data => {
+        console.log("Unsplash2: ", data)
+        displayImage(data)
+    });
+
+const displayImage = (data) => {
+    // for (let i = 0; i < data.results.length; i++) {
+    //     let imageElement = document.createElement('img');
+    //     imageElement.src = data.results[i].urls.small;
+    //     imageDiv.append(imageElement);
+    // }
+
+    let imageElement = document.createElement('img');
+    imageElement.src = data.results[0].urls.small;
+    imageDiv.append(imageElement);
+
+}
+
 
 
 const p = document.getElementById('todo-title');
